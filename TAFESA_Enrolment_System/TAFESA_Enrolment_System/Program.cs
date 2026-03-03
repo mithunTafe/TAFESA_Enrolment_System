@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TAFESA_Enrolment_System.Model;
 
 namespace TAFESA_Enrolment_System
 {

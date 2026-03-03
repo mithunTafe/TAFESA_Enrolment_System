@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TAFESA_Enrolment_System
+namespace TAFESA_Enrolment_System.Model
 {
     class Person
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Xml.Linq;
 
-namespace TAFESA_Enrolment_System
+namespace TAFESA_Enrolment_System.Model
 {
     class Student : Person
     {
