@@ -160,11 +160,11 @@ namespace TAFESA_Enrolment_System.Model
         /// Uses bitwise XOR (^) to combine default hascode with the generated one based of Student ID.
         /// </summary>
         /// <returns>
-        /// The combined hash code of base and the one generated of Student ID.
+        /// The hash code generated based on Student ID.
         /// </returns>
         public override int GetHashCode()
         {
-            return base.GetHashCode() ^ this.StudentID.GetHashCode();
+            return this.StudentID.GetHashCode();
         }
 
     }
