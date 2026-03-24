@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TAFESA_Enrolment_System.Model
 {
-    class Address
+    public class Address
     {
         // default constants
         const int DEF_STNO = -1;

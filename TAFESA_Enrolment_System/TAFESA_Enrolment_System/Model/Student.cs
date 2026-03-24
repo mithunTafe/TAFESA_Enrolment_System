@@ -11,7 +11,7 @@ namespace TAFESA_Enrolment_System.Model
 {
     // Student inherits Person
     // Student implements IComparable
-    class Student : Person, IComparable, IComparable<Student>
+    public class Student : Person, IComparable, IComparable<Student>
     {
         // default constants
         const string DEF_ID = "No ID provided";

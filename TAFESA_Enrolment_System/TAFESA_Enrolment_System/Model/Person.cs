@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TAFESA_Enrolment_System.Model
 {
-    class Person
+    public class Person
     {
         // class-level member variables
         private string name;

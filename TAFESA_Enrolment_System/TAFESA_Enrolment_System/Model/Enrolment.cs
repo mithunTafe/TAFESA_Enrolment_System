@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TAFESA_Enrolment_System.Model
 {
-    class Enrolment
+    public class Enrolment
     {
         // default constants
         const string DEF_DATE = "No date provided"; // Date enrolled
