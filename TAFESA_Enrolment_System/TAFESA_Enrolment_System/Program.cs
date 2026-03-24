@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TAFESA_Enrolment_System.Model;
 
+
 namespace TAFESA_Enrolment_System
 {
     class Program
@@ -173,6 +174,59 @@ namespace TAFESA_Enrolment_System
             Console.WriteLine("\n-----Checking equality of Student object 2 and Student object 3. Expected: EQUAL-----");
             DisplayWhetherEqual(s2, s3);
 
+            /*
+             * -------------------------------------------------------------
+             * Searching Student object using Sequential and Binary searches 
+             * -------------------------------------------------------------
+            */
+
+            // Creating 10 Student objects
+            const int NO_OF_STUDENTS = 10;
+            Student[] studentArray = new Student[NO_OF_STUDENTS];
+
+            // To generate random student IDs
+            Random rnd = new Random();
+            int intID;
+
+            Console.WriteLine("\n-----Student Array with 10 Student objects-----\n");
+            
+            // Populating studentArray
+            for (int i = 0; i < studentArray.Length; i++)
+            {
+                intID = rnd.Next(NO_OF_STUDENTS);
+                studentArray[i] = new Student(intID.ToString());
+                Console.WriteLine("Student object at index {0} - ID: {1}", i, studentArray[i].StudentID);
+            }
+
+            Console.WriteLine("\n-----Searching STUDENT array-----\n");
+
+            Console.WriteLine("\n-----Linear Search - STUDENT array-----\n");
+            Console.WriteLine("\nLinear Search for Student with ID '0' is found at index : " + Utility.LinearSearchArray(studentArray, new Student("0")));
+            Console.WriteLine("\nLinear Search for Student with ID '6' is found at index : " + Utility.LinearSearchArray(studentArray, new Student("6")));
+            Console.WriteLine("\nLinear Search for Student with ID '7' is found at index : " + Utility.LinearSearchArray(studentArray, new Student("7")));
+
+            Console.WriteLine("\n-----Binary Search - STUDENT array-----\n");
+            Console.WriteLine("\nBinary Search for Student with ID '0' is found at index: " + Utility.BinarySearchArray(studentArray, new Student("0")));
+            Console.WriteLine("\nBinary Search for Student with ID '6' is found at index: " + Utility.BinarySearchArray(studentArray, new Student("6")));
+            Console.WriteLine("\nBinary Search for Student with ID '7' is found at index: " + Utility.BinarySearchArray(studentArray, new Student("7")));
+
+
+            Console.WriteLine("\n-----Sorting STUDENT array-----\n");
+            
+            Console.WriteLine("\n-----Selection Sort in ascending order - STUDENT array-----\n");
+            Utility.SelectionSortAsc(studentArray);
+            
+            // Displaying studentArray after sorting
+            Console.WriteLine("\n-----After sorting-----");
+            PrintStudentArray(studentArray);
+            
+            Console.WriteLine("\n-----Bubble Sort in descending order - STUDENT array-----\n");
+            Utility.SelectionSortDesc(studentArray);
+
+            // Displaying studentArray after sorting
+            Console.WriteLine("\n-----After sorting-----");
+            PrintStudentArray(studentArray);
+
         }
 
         /// <summary>
@@ -188,5 +242,16 @@ namespace TAFESA_Enrolment_System
                 Console.WriteLine(string.Format("{0} \n\n NOT EQUAL \n {1}", a, b));
         }
 
+        /// <summary>
+        /// Method to print Student array displaying StudentID of each object (element of the array) and its index
+        /// </summary>
+        /// <param name="myArray"> Student array to be printed </param>
+        public static void PrintStudentArray(Student[] myArray)
+        {
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.WriteLine("Student object at index {0} - ID: {1}", i, myArray[i].StudentID);
+            }
+        }
     }
 }

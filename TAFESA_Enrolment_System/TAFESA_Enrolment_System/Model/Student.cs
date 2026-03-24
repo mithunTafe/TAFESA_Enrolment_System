@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -8,7 +9,9 @@ using System.Xml.Linq;
 
 namespace TAFESA_Enrolment_System.Model
 {
-    class Student : Person
+    // Student inherits Person
+    // Student implements IComparable
+    class Student : Person, IComparable, IComparable<Student>
     {
         // default constants
         const string DEF_ID = "No ID provided";
@@ -167,5 +170,45 @@ namespace TAFESA_Enrolment_System.Model
             return this.StudentID.GetHashCode();
         }
 
+        /// <summary>
+        /// CompareTo() method written to implement IComparable interface, that takes generic object as parameter
+        /// Calls CompareTo(Student) method
+        /// </summary>
+        /// <param name="obj"> Generic object </param>
+        /// <returns>
+        /// return value of CompareTo(Student) method
+        /// </returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public int CompareTo(object obj)
+        {
+            // Checking for null object
+            if (obj == null)
+                throw new ArgumentNullException("obj");
+
+            // If object is not of Student type
+            if (!(obj is Student))
+                throw new ArgumentException("Expected Student instance", "obj");
+
+            // If non-null object is of Student type
+            // Typecast obj to Student type, call CompareTo(Student), and return its return value
+            return CompareTo((Student)obj);
+        }
+
+        /// <summary>
+        /// CompareTo() method written to implement IComparable interface, that takes Student object as parameter
+        /// Called by CompareTo(object) method
+        /// </summary>
+        /// <param name="s"> Student object </param>
+        /// <returns>
+        /// -1, if the calling object comes before Student object, s
+        /// 0, if the calling object and Student object, s are same
+        /// 1, if the calling object comes after Student object, s
+        /// </returns>
+        public int CompareTo(Student s)
+        {
+            // Compares current object's studentID with that of s
+            return this.StudentID.CompareTo(s.StudentID);
+        }
     }
 }
